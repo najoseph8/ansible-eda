@@ -10,4 +10,4 @@
       condition: event.payload.message == "Who is in my house?"
       action:
         run_job_template:
-          name: rickjames.yml
+          name: 'The Rick James Playbook'
