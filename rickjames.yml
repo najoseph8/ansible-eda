@@ -1,0 +1,10 @@
+---
+- name: I'm Rick James!
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+
+    - name: Print something cool
+      ansible.builtin.debug:
+        msg: "I'm Rick James!!"
