@@ -1,6 +1,6 @@
 ---
 - name: I'm Rick James!
-  hosts: localhost
+  hosts: all
   gather_facts: false
 
   tasks:
