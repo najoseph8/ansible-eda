@@ -9,5 +9,5 @@
     - name: Say Hello
       condition: event.payload.message == "Who is in my house?"
       action:
-        run_playbook:
+        run_job_template:
           name: rickjames.yml
