@@ -6,7 +6,7 @@
         host: 0.0.0.0
         port: 5000
   rules:
-    - name: Say Hello
+    - name: Run a JCL job on a Z/OS Mainframe
       condition: event.payload.message == "MERGSORT"
       action:
         run_job_template:
