@@ -1,0 +1,14 @@
+---
+- name: An EDA webhook that will submit JCL on a Z/OS System
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Say Hello
+      condition: event.payload.message == "MERGSORT"
+      action:
+        run_job_template:
+          name: 'ZOS - Submit a JCL Job'
+          organization: 'Default'
