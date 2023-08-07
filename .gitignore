@@ -1,2 +1,3 @@
 ./vscode/
 ansible-navigator.log
+.gitignore
