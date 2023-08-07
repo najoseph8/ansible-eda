@@ -10,5 +10,6 @@
       condition: event.payload.message == "MERGSORT"
       action:
         run_job_template:
-          name: 'ZOS - Submit a JCL Job'
+          # name: 'ZOS - Submit a JCL Job'
+          name: 'SNOW - Create Incident'
           organization: 'Default'
