@@ -18,5 +18,5 @@
       action:
         run_job_template:
           # name: 'ZOS - Submit a JCL Job'
-          name: 'SNOW - Create Incident'
+          name: 'EDA - SNOW Incident - Submit JCL'
           organization: 'Default'
