@@ -1,1 +1,1 @@
-curl -H 'Content-Type: application/json' -d "{\"message\": \"Who is in my house?\"}" eda.thenorvilles.com:5000/endpoint
+curl -H 'Content-Type: application/json' -d "{\"message\": \"Who is in my house?\"}" eda.thenorvilles.com:6000/endpoint
