@@ -1,3 +1,4 @@
+---
 - name: Turbonomic Webhook Actions
   hosts: all
   sources:
