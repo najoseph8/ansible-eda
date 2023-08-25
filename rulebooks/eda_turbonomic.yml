@@ -21,5 +21,5 @@
       condition: event.payload.actionType == "SCALE"
       action:
         run_job_template:
-        name: 'The Rick James Playbook'
-        organization: 'Default'
+          name: 'The Rick James Playbook'
+          organization: 'Default'
