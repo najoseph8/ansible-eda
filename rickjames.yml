@@ -8,3 +8,15 @@
     - name: Print something cool
       ansible.builtin.debug:
         msg: "I'm Rick James!!"
+
+    - name: Extra_vars - instance type
+      ansible.builtin.debug:
+        var: instance_type
+
+    - name: Extra_vars - instance id
+      ansible.builtin.debug:
+        var: instance_id
+
+    - name: Extra_vars - ec2 region
+      ansible.builtin.debug:
+        var: ec2_region
