@@ -47,7 +47,7 @@
             instance_type: "{{ resize_ec2_instance_vm_info['instances'][0]['instance_type'] }}"
             state: stopped
             wait: true
-            changed_when: false
+          changed_when: false
 
         - name: Resize EC2 Instance
           # Current ec2_instance module does not support modifying the instance type so using CLI via command
