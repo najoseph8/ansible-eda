@@ -33,7 +33,7 @@
         msg: "{{ resize_ec2_instance_vm_info }}"
 
     - name: Resize EC2 Instance if the recommended instance type does not match the current instance type
-      when: instance_type != resize_ec2_instance_vm_info['instances'][0]['instance_type']
+      
       block:
         - name: Shutdown the EC2 Instance
           amazon.aws.ec2_instance:
@@ -66,3 +66,4 @@
             state: started
             # state: running
             wait: true
+      when: instance_type != resize_ec2_instance_vm_info['instances'][0]['instance_type']
