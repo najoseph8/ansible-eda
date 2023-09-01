@@ -1,5 +1,5 @@
 ---
-- name: I'm Rick James!
+- name: Playbok for Turbonomic recommended scaling action
   hosts: all
   gather_facts: false
 

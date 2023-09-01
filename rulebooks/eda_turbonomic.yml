@@ -23,7 +23,7 @@
                  event.payload.target.discoveredBy.type == "AWS"
       action:
         run_job_template:
-          name: 'The Rick James Playbook'
+          name: 'Turbonomic EDA Scaling'
           organization: 'Default'
           job_args:
             extra_vars:
