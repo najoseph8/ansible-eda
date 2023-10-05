@@ -5,10 +5,6 @@
 
   tasks:
 
-    - name: Print something cool
-      ansible.builtin.debug:
-        msg: "I'm Rick James!!"
-
     - name: Extra_vars - instance type
       ansible.builtin.debug:
         var: instance_type
