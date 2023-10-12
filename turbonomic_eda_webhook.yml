@@ -2,6 +2,9 @@
 - name: Playbok for Turbonomic recommended scaling action
   hosts: all
   gather_facts: false
+  vars:
+    sn_username: "{{ lookup('ansible.builtin.env', 'SN_USERNAME') }}"
+    sn_instance: "{{ lookup('ansible.builtin.env', 'SN_HOST') }}"
 
   tasks:
 
@@ -40,8 +43,23 @@
       ansible.builtin.debug:
         msg: "The current value of the target is: {{ resize_ec2_instance_vm_info['instances'][0]['instance_type'] }}"
 
-    # Open up a Service Now Ticket and populate with relevant information
-    # Insert your Business Logic
+    - name: Create incident
+      servicenow.itsm.incident:
+        state: new
+        caller: "{{ sn_username }}"
+        short_description: "Turbonomic Recommendation: Scaling EC2 Instance {{ display_name }} to {{ instance_type }}"
+        description: "Turbonomic Recommendation: {{ details }} - Region: {{ ec2_region }} - Instance ID: {{ instance_id }} - Instance Name: {{ display_name }}"
+        impact: low
+        urgency: low
+      register: new_incident
+      delegate_to: localhost
+
+    - set_fact:
+        incident_number_cached: "{{ new_incident.record.number }}"
+        cacheable: true
+
+    - ansible.builtin.debug:
+        msg: "A new incident has been created for Turbonomic Recommendation: {{ new_incident.record.number }}"
 
     - name: Resize EC2 Instance if the recommended instance type does not match the current instance type
       
