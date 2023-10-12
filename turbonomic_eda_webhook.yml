@@ -17,6 +17,14 @@
       ansible.builtin.debug:
         var: ec2_region
 
+    - name: Extra_vars - Info
+      ansible.builtin.debug:
+        var: details
+
+    - name: Extra_vars - display name
+      ansible.builtin.debug:
+        var: display_name
+
     - name: Gather information about a particular instance using it's instance ID
       amazon.aws.ec2_instance_info:
         region: "{{ ec2_region | regex_search('(?<=::)[^::]*') }}"
