@@ -105,7 +105,7 @@
       register: resize_ec2_instance_vm_info_new
 
     - name: Update the ServiceNow Ticket to reflect the new Instance Type
-      incident:
+      servicenow.itsm.incident:
         state: resolved
         caller: "{{ sn_username }}"
         number: "{{ new_incident.record.number }}"
