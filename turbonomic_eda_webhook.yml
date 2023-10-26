@@ -96,3 +96,18 @@
             # state: running
             wait: true
       when: instance_type != resize_ec2_instance_vm_info['instances'][0]['instance_type']
+
+    - name: Re-Query the instance to verify the new Instance Type
+      amazon.aws.ec2_instance_info:
+        region: "{{ ec2_region | regex_search('(?<=::)[^::]*') }}"
+        instance_ids:
+          - "{{ instance_id }}"
+      register: resize_ec2_instance_vm_info_new
+
+    - name: Update the ServiceNow Ticket to reflect the new Instance Type
+      incident:
+        state: resolved
+        caller: "{{ sn_username }}"
+        number: "{{ new_incident.record.number }}"
+        close_code: "Solved (Permanently)"
+        close_notes: "The new value of the target is: {{ resize_ec2_instance_vm_info_new['instances'][0]['instance_type'] }}"
