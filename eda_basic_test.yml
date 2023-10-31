@@ -1,0 +1,16 @@
+---
+- name: Turbonomic Webhook Actions
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5001
+
+  rules:
+    - name: AWS - Run EC2 Playbook for Scaling
+      condition: event.payload.actionType == "SCALE"
+      action:
+        run_job_template:
+          name: 'RickJames'
+          organization: 'Default'
+          
