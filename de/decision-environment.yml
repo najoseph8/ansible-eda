@@ -21,6 +21,6 @@ dependencies:
             - name: cloin.datadog
             - name: ansible.utils
             - name: dynatrace.event_driven_ansible
-            - name: ibm.turbonomic
+            - name: ibm.turbonomic_eda
 options:
     package_manager_path: /usr/bin/microdnf
